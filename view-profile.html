@@ -1,13 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3K7N4SJT9W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3K7N4SJT9W');
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile - Free DeepSeek V3 Experience</title>
-    <meta name="description" content="View your user profile for the Free DeepSeek V3 Experience.">
+    <title>Профиль пользователя на русской версии - Бесплатный опыт DeepSeek V3</title>
+    <meta name="description" content="Просмотрите свой профиль пользователя для Free DeepSeek V3 Experience.">
     <link rel="canonical" href="https_YOUR_DOMAIN_COM/view-profile">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="images/制作图标.png">
+    <link rel="alternate" hreflang="ru" href="http://www.ershiliul.com"/>
+
     <!-- Styles previously inline are now expected to be in style.css or handled by general rules -->
 </head>
 <body>
@@ -19,16 +30,16 @@
                 <h2>DeepSeek V3</h2>
             </div>
             <nav class="sidebar-nav">
-                <a href="login.html" class="nav-auth-link">Login/Register</a>
-                <a href="index.html" class="active">Chat Interface</a>
-                <a href="feedback.html">User Feedback</a>
+                <a href="login.html" class="nav-auth-link">Войти/Зарегистрироваться</a>
+                <a href="index.html" class="active">Интерфейс чата</a>
+                <a href="feedback.html">Обратная связь</a>
             </nav>
             <div class="chat-history">
-                <h3>Chat History</h3>
+                <h3>История чатов</h3>
                 <ul id="history-list">
-                    <!-- 历史对话将通过JS动态添加 -->
-                    <li><a href="#">Chat 1 - V3 Model Features</a></li>
-                    <li><a href="#">Chat 2 - Music Rhythm Game</a></li>
+                    <!-- Исторические диалоги будут добавлены динамически через JS -->
+                    <li><a href="#">Чат 1 - Возможности модели V3</a></li>
+                    <li><a href="#">Чат 2 - Музыкальная ритм-игра</a></li>
                 </ul>
             </div>
         </aside>
@@ -36,25 +47,25 @@
         <main class="main-content">
             <div class="profile-page-container"> <!-- Renamed to avoid conflict if .container is too generic -->
                 <div class="profile-card">
-                    <h1 class="page-title">User Profile</h1> <!-- Added .page-title for consistent styling -->
+                    <h1 class="page-title">Профиль пользователя</h1> <!-- Added .page-title for consistent styling -->
                     <div class="profile-avatar-container">
-                        <img id="userProfileAvatar" src="#" alt="User Avatar" class="profile-avatar" style="display:none;">
+                        <img id="userProfileAvatar" src="#" alt="Аватар пользователя" class="profile-avatar" style="display:none;">
                         <div id="userProfileAvatarText" class="profile-avatar-text" style="display:none;"></div>
                     </div>
                     <div class="profile-info">
-                        <p><strong>Username:</strong> <span id="userProfileName">-</span></p>
-                        <p><strong>Email:</strong> <span id="userProfileEmail">-</span></p>
+                        <p><strong>Имя пользователя:</strong> <span id="userProfileName">-</span></p>
+                        <p><strong>Электронная почта:</strong> <span id="userProfileEmail">-</span></p>
                     </div>
-                    <a href="index.html" class="profile-back-btn btn">Return to Homepage</a> <!-- Added .btn for general button styling -->
+                    <a href="index.html" class="profile-back-btn btn">Вернуться на главную</a> <!-- Added .btn for general button styling -->
                 </div>
             </div>
         </main>
     </div>
 
     <footer>
-        <p><a href="https://beian.miit.gov.cn" rel="nofollow">渝ICP备2025053179号</a> | Contact Us: <a href="mailto:ytsgabcde46@2925.com">ytsgabcde46@2925.com</a></p>
+        <p><a href="https://beian.miit.gov.cn" rel="nofollow">渝ICP备2025053179号</a> | Свяжитесь с нами: <a href="mailto:ytsgabcde47@2925.com">ytsgabcde47@2925.com</a></p>
         <hr class="footer-divider">
-        <p class="footer-ai-notice">Content generated by AI, accuracy cannot be guaranteed, for reference only. <a href="privacy.html">Personal Information Protection Rules</a></p>
+        <p class="footer-ai-notice">Контент создан ИИ, точность не гарантируется, только для справки. <a href="privacy.html">Правила защиты личной информации</a></p>
     </footer>
 
     <div id="custom-pointer">👆</div>
@@ -75,8 +86,8 @@
                 scale: 1.00,
                 scaleMobile: 1.00,
                 backgroundColor: 0xf5f5f5, // Light gray background
-                color1: 0x12a0b8,          // Example bird color
-                color2: 0x6ac04b,          // Example bird color
+                color1: 0xa49039,
+                color2: 0xff9500,
                 birdSize: 1.20,
                 quantity: 3.00
             });
