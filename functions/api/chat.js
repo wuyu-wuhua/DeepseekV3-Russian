@@ -1,83 +1,78 @@
-        // functions/api/chat.js
-        
-        import OpenAI from 'openai';
-
-        // 临时：如果你还没有OpenAI的模块，先用这个模拟
-        async function getDashScopeChatReply(userMessage, apiKey) {
-            console.log(`[Cloudflare Function /api/chat] API Key available: ${!!apiKey}`);
-            if (!apiKey) {
-                console.error("DASHSCOPE_API_KEY is not configured.");
-                return "AI service is not configured (API key missing).";
-            }
-            try {
-                const openai = new OpenAI({
-                    apiKey: apiKey,
-                    baseURL: "https://dashscope.aliyuncs.com/compatible-mode/v1"
-                });
-                const completion = await openai.chat.completions.create({
-                    model: "qwen-turbo", // Using qwen-turbo as an example chat model
-                    messages: [{ role: "user", content: userMessage }],
-                });
-                return completion.choices[0].message.content;
-            } catch (error) {
-                console.error("Error calling DashScope API:", error);
-                return "AI service request failed.";
-            }
-        }
-
-        export async function onRequestPost(context) {
-            console.log('Cloudflare context.env:', JSON.stringify(context.env));
-            console.log('DASHSCOPE_API_KEY from env:', context.env.DASHSCOPE_API_KEY);
-            try {
-                // context.request 是标准的 Fetch API Request 对象
-                // context.env 包含环境变量
-                // context.next() 调用下一个中间件 (如果使用 _middleware.js)
-                // context.waitUntil() 用于延长函数执行时间处理异步任务
-
-                const requestBody = await context.request.json();
-                const userMessage = requestBody.message;
-
-                if (!userMessage) {
-                    return new Response(JSON.stringify({ error: "Message is required" }), {
-                        status: 400,
-                        headers: { 
-                            'Content-Type': 'application/json',
-                            'Access-Control-Allow-Origin': 'https://erlinmall.com' // 确保与你的前端源匹配
-                        },
-                    });
-                }
-
-                const apiKey = context.env.DASHSCOPE_API_KEY; 
-                const aiReply = await getDashScopeChatReply(userMessage, apiKey);
-
-                return new Response(JSON.stringify({ reply: aiReply }), {
-                    status: 200,
-                    headers: { 
-                        'Content-Type': 'application/json',
-                        'Access-Control-Allow-Origin': 'https://erlinmall.com' 
-                    },
-                });
-
-            } catch (error) {
-                console.error("Error in /api/chat POST function:", error.message, error.stack);
-                return new Response(JSON.stringify({ error: error.message || 'Internal Server Error in function' }), {
-                    status: 500,
-                    headers: { 
-                        'Content-Type': 'application/json',
-                        'Access-Control-Allow-Origin': 'https://erlinmall.com'
-                    },
-                });
-            }
-        }
-
-        // 对于 POST 请求，通常也需要 OPTIONS 预检请求
-        export async function onRequestOptions(context) {
-          return new Response(null, {
-            headers: {
-              'Access-Control-Allow-Origin': 'https://erlinmall.com', // 你的前端生产域名
-              'Access-Control-Allow-Methods': 'POST, GET, OPTIONS', // 明确列出允许的方法
-              'Access-Control-Allow-Headers': 'Content-Type, Authorization', // 允许的请求头
-              'Access-Control-Max-Age': '86400', // 预检请求结果的缓存时间（秒）
-            },
+// functions/api/chat.js
+export async function onRequestPost(context) {
+    try {
+      const requestData = await context.request.json();
+      const { userMessage, systemMessage, useCase } = requestData;
+  
+      if (!userMessage) {
+        return new Response(JSON.stringify({ error: "userMessage is required" }), {
+          status: 400,
+          headers: { 'Content-Type': 'application/json' },
+        });
+      }
+  
+      let messages = [];
+      if (systemMessage) {
+        messages.push({ role: "system", content: systemMessage });
+      } else {
+        messages.push({ role: "system", content: "You are a helpful assistant." });
+      }
+      messages.push({ role: "user", content: userMessage });
+  
+      const dashscopeApiKey = context.env.DASHSCOPE_API_KEY;
+      if (!dashscopeApiKey) {
+          console.error("DASHSCOPE_API_KEY is not set in environment variables.");
+          return new Response(JSON.stringify({ error: "Server configuration error: API key missing." }), {
+              status: 500,
+              headers: { 'Content-Type': 'application/json' },
           });
-        }
+      }
+  
+      console.log("Sending to DashScope Chat API. Model: qwen-plus. Use Case:", useCase);
+  
+      const completionResponse = await fetch("https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions", {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${dashscopeApiKey}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          model: "qwen-plus", // 您可以根据 useCase 动态选择模型
+          messages: messages,
+        }),
+      });
+  
+      if (!completionResponse.ok) {
+        const errorData = await completionResponse.json().catch(() => ({}));
+        console.error('DashScope Chat API error:', completionResponse.status, errorData);
+        return new Response(JSON.stringify({
+          error: 'Failed to get a valid response from AI provider.',
+          details: errorData
+        }), {
+          status: completionResponse.status,
+          headers: { 'Content-Type': 'application/json' },
+        });
+      }
+  
+      const completion = await completionResponse.json();
+  
+      if (completion.choices && completion.choices.length > 0 && completion.choices[0].message) {
+        return new Response(JSON.stringify({ botResponse: completion.choices[0].message.content }), {
+          headers: { 'Content-Type': 'application/json' },
+        });
+      } else {
+        console.error("Unexpected API response structure from DashScope Chat:", completion);
+        return new Response(JSON.stringify({ error: "Failed to parse response from AI provider." }), {
+          status: 500,
+          headers: { 'Content-Type': 'application/json' },
+        });
+      }
+  
+    } catch (error) {
+      console.error('Error in /api/chat function:', error);
+      return new Response(JSON.stringify({ error: '处理聊天请求失败', details: error.message }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+  }

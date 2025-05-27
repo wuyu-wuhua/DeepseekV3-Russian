@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль пользователя на русской версии - Бесплатный опыт DeepSeek V3</title>
+    <meta name="description" content="Просмотрите свой профиль пользователя для Free DeepSeek V3 Experience.">
+    <link rel="canonical" href="https_YOUR_DOMAIN_COM/view-profile">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="images/制作图标.png">
+    <link rel="alternate" hreflang="ru" href="http://www.ershiliul.com"/>
+
+    <!-- Styles previously inline are now expected to be in style.css or handled by general rules -->
+</head>
+<body>
+    <div id="vanta-bg"></div> <!-- Vanta background placeholder -->
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>DeepSeek V3</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="login.html" class="nav-auth-link">Войти/Зарегистрироваться</a>
+                <a href="index.html" class="active">Интерфейс чата</a>
+                <a href="feedback.html">Обратная связь</a>
+            </nav>
+            <div class="chat-history">
+                <h3>История чатов</h3>
+                <ul id="history-list">
+                    <!-- Исторические диалоги будут добавлены динамически через JS -->
+                    <li><a href="#">Чат 1 - Возможности модели V3</a></li>
+                    <li><a href="#">Чат 2 - Музыкальная ритм-игра</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="profile-page-container"> <!-- Renamed to avoid conflict if .container is too generic -->
+                <div class="profile-card">
+                    <h1 class="page-title">Профиль пользователя</h1> <!-- Added .page-title for consistent styling -->
+                    <div class="profile-avatar-container">
+                        <img id="userProfileAvatar" src="#" alt="Аватар пользователя" class="profile-avatar" style="display:none;">
+                        <div id="userProfileAvatarText" class="profile-avatar-text" style="display:none;"></div>
+                    </div>
+                    <div class="profile-info">
+                        <p><strong>Имя пользователя:</strong> <span id="userProfileName">-</span></p>
+                        <p><strong>Электронная почта:</strong> <span id="userProfileEmail">-</span></p>
+                    </div>
+                    <a href="index.html" class="profile-back-btn btn">Вернуться на главную</a> <!-- Added .btn for general button styling -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <p><a href="https://beian.miit.gov.cn" rel="nofollow">渝ICP备2025053179号</a> | Свяжитесь с нами: <a href="mailto:ytsgabcde47@2925.com">ytsgabcde47@2925.com</a></p>
+        <hr class="footer-divider">
+        <p class="footer-ai-notice">Контент создан ИИ, точность не гарантируется, только для справки. <a href="privacy.html">Правила защиты личной информации</a></p>
+    </footer>
+
+    <div id="custom-pointer">👆</div>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script> <!-- Changed to BIRDS -->
+    <script>
+        // Initialize Vanta.js BIRDS background
+        if (typeof VANTA !== "undefined" && typeof VANTA.BIRDS !== "undefined") {
+            VANTA.BIRDS({
+                el: "#vanta-bg",
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200.00,
+                minWidth: 200.00,
+                scale: 1.00,
+                scaleMobile: 1.00,
+                backgroundColor: 0xf5f5f5, // Light gray background
+                color1: 0xa49039,
+                color2: 0xff9500,
+                birdSize: 1.20,
+                quantity: 3.00
+            });
+        }
+
+        // Ensure elements for login UI updates and history exist or are handled gracefully
+        document.addEventListener('DOMContentLoaded', () => {
+            // Specific New Chat button for this page's sidebar
+            const newChatBtnSidebarProfile = document.getElementById('newChatBtnSidebarProfile');
+            if (newChatBtnSidebarProfile) {
+                newChatBtnSidebarProfile.addEventListener('click', () => {
+                    window.location.href = 'index.html';
+                });
+            }
+            // Populate history for this page (can use the same function if IDs match)
+            // For now, ensuring an ID is present for any potential script.js shared logic
+            const historyListProfile = document.getElementById('history-list-profile');
+            if (historyListProfile) {
+                // Placeholder or call a shared loadChatHistory function if adapted
+                // loadChatHistory(historyListProfile); // If you make loadChatHistory accept an element
+            }
+        });
+    </script>
+</body>
+</html> 
