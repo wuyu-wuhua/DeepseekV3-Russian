@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Бесплатная пробная версия DeepSeek V3 на русском языке - Чат с продвинутым ИИ</title>
-    <meta name="description" content="Исследуйте возможности DeepSeek V3 бесплатно. Участвуйте в продвинутых беседах с ИИ, генерируйте текст, анализируйте изображения и испытайте рисование с помощью ИИ.">
+    <title>Free DeepSeek V3 Experience - Chat with Advanced AI</title>
+    <meta name="description" content="Explore the capabilities of DeepSeek V3 for free. Engage in advanced AI conversations, generate text, analyze images, and experience AI-powered drawing.">
     <link rel="canonical" href="https_YOUR_DOMAIN_COM/">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="images/制作图标.png">
-    <link rel="alternate" hreflang="ru" href="http://www.ershiliul.com"/>
-
 </head>
 <body>
     <div id="vanta-bg"></div>
@@ -20,33 +18,33 @@
                 <h2>DeepSeek V3</h2>
             </div>
             <nav class="sidebar-nav">
-                <a href="login.html" class="nav-auth-link">Войти/Зарегистрироваться</a>
-                <a href="index.html" class="active">Интерфейс чата</a>
-                <a href="feedback.html">Обратная связь</a>
+                <a href="login.html" class="nav-auth-link">Login/Register</a>
+                <a href="index.html" class="active">Chat Interface</a>
+                <a href="feedback.html">User Feedback</a>
             </nav>
             <div class="chat-history">
-                <h3>История чатов</h3>
+                <h3>Chat History</h3>
                 <ul id="history-list">
-                    <!-- Исторические диалоги будут добавлены динамически через JS -->
-                    <li><a href="#">Чат 1 - Возможности модели V3</a></li>
-                    <li><a href="#">Чат 2 - Музыкальная ритм-игра</a></li>
+                    <!-- 历史对话将通过JS动态添加 -->
+                    <li><a href="#">Chat 1 - V3 Model Features</a></li>
+                    <li><a href="#">Chat 2 - Music Rhythm Game</a></li>
                 </ul>
             </div>
-            <button class="new-chat-btn" id="newChatBtnSidebar">Новый чат</button>
+            <button class="new-chat-btn" id="newChatBtnSidebar">New Chat</button>
         </aside>
 
         <main class="chat-interface">
             <div class="content-wrapper">
                 <header class="chat-header">
-                    <h1>Бесплатная пробная версия DeepSeek V3 на русском языке</h1>
-                    <p>Я могу помочь вам писать код, читать файлы, создавать различный контент, просто дайте мне ваши задачи!</p>
+                    <h1>Free DeepSeek V3 experience</h1>
+                    <p>I can help you write code, read files, create various content, just give me your tasks!</p>
                 </header>
 
                 <div class="message-area" id="messageArea">
-                    <!-- Сообщения диалога будут отображаться здесь -->
+                    <!-- 对话消息将显示在这里 -->
                 </div>
                 <div id="image-aspect-ratio-selector" class="image-aspect-ratio-selector" style="display: none;">
-                    <h4>Выберите соотношение сторон:</h4>
+                    <h4>Select Aspect Ratio:</h4>
                     <button class="aspect-ratio-btn" data-ratio="1:1">1:1</button>
                     <button class="aspect-ratio-btn" data-ratio="3:4">3:4</button>
                     <button class="aspect-ratio-btn" data-ratio="4:3">4:3</button>
@@ -54,72 +52,72 @@
                     <button class="aspect-ratio-btn" data-ratio="16:9">16:9</button>
                 </div>
                 <div class="chat-input-area">
-                    <button id="uploadImageBtn" class="upload-btn" aria-label="Загрузить изображение">📎</button>
+                    <button id="uploadImageBtn" class="upload-btn" aria-label="Upload Image">📎</button>
                     <div id="imagePreviewContainer" class="image-preview-container">
-                        <!-- Предпросмотр загруженного изображения будет отображаться здесь -->
+                        <!-- 上传的图片预览将显示在这里 -->
                     </div>
-                    <textarea id="chatInput" placeholder="Отправьте сообщение в DeepSeek"></textarea>
-                    <button id="sendMessageBtn" class="send-btn" aria-label="Отправить сообщение">⬆️</button>
+                    <textarea id="chatInput" placeholder="Send a message to DeepSeek"></textarea>
+                    <button id="sendMessageBtn" class="send-btn" aria-label="Send Message">⬆️</button>
                 </div>
 
                 <div class="use-cases">
                     <button class="use-case-btn" data-case="general">
-                        <img src="images/通用对话.png" alt="Иконка общего чата" class="use-case-icon-img">
-                        <span class="use-case-title">Общий чат</span>
-                        <span class="use-case-description">Отвечать на вопросы, предоставлять информацию</span>
+                        <img src="images/通用对话.png" alt="General Chat Icon" class="use-case-icon-img">
+                        <span class="use-case-title">General Chat</span>
+                        <span class="use-case-description">Answer questions, provide information</span>
                     </button>
                     <button class="use-case-btn" data-case="education">
-                        <img src="images/教育辅导.png" alt="Иконка образования" class="use-case-icon-img">
-                        <span class="use-case-title">Образование</span>
-                        <span class="use-case-description">Объяснять концепции, помогать в обучении</span>
+                        <img src="images/教育辅导.png" alt="Education Icon" class="use-case-icon-img">
+                        <span class="use-case-title">Education</span>
+                        <span class="use-case-description">Explain concepts, assist learning</span>
                     </button>
                     <button class="use-case-btn" data-case="translation">
-                        <img src="images/翻译助手.png" alt="Иконка перевода" class="use-case-icon-img">
-                        <span class="use-case-title">Перевод</span>
-                        <span class="use-case-description">Многоязычный перевод</span>
+                        <img src="images/翻译助手.png" alt="Translation Icon" class="use-case-icon-img">
+                        <span class="use-case-title">Translation</span>
+                        <span class="use-case-description">Multi-language translation</span>
                     </button>
                     <button class="use-case-btn" data-case="data_analysis">
-                        <img src="images/数据分析.png" alt="Иконка анализа данных" class="use-case-icon-img">
-                        <span class="use-case-title">Анализ данных</span>
-                        <span class="use-case-description">Полезные данные, поддержка принятия решений</span>
+                        <img src="images/数据分析.png" alt="Data Analysis Icon" class="use-case-icon-img">
+                        <span class="use-case-title">Data Analysis</span>
+                        <span class="use-case-description">Insightful data, decision support</span>
                     </button>
                     <button class="use-case-btn" data-case="screenwriting">
-                        <img src="images/影视剧本.png" alt="Иконка написания сценариев" class="use-case-icon-img">
-                        <span class="use-case-title">Написание сценариев</span>
-                        <span class="use-case-description">Творческие идеи, написание сценариев</span>
+                        <img src="images/影视剧本.png" alt="Screenwriting Icon" class="use-case-icon-img">
+                        <span class="use-case-title">Screenwriting</span>
+                        <span class="use-case-description">Creative ideas, script writing</span>
                     </button>
                     <button class="use-case-btn" data-case="media_ops">
-                        <img src="images/媒体运营.png" alt="Иконка медиаопераций" class="use-case-icon-img">
-                        <span class="use-case-title">Медиаоперации</span>
-                        <span class="use-case-description">Планирование контента, маркетинг</span>
+                        <img src="images/媒体运营.png" alt="Media Operations Icon" class="use-case-icon-img">
+                        <span class="use-case-title">Media Ops</span>
+                        <span class="use-case-description">Content planning, marketing</span>
                     </button>
                     <button class="use-case-btn" data-case="image_parsing">
-                        <img src="images/图像解析.png" alt="Иконка разбора изображений" class="use-case-icon-img">
-                        <span class="use-case-title">Изображение в подсказку</span>
-                        <span class="use-case-description">Понимать изображения, извлекать информацию</span>
+                        <img src="images/图像解析.png" alt="Image Parsing Icon" class="use-case-icon-img">
+                        <span class="use-case-title">Image to Prompt</span>
+                        <span class="use-case-description">Understand images, extract info</span>
                     </button>
                     <button class="use-case-btn" data-case="ai_drawing">
-                        <img src="images/AI绘图.png" alt="Иконка рисования ИИ" class="use-case-icon-img">
-                        <span class="use-case-title">Рисование ИИ</span>
-                        <span class="use-case-description">Текст в изображение, безграничное творчество</span>
+                        <img src="images/AI绘图.png" alt="AI Drawing Icon" class="use-case-icon-img">
+                        <span class="use-case-title">AI Drawing</span>
+                        <span class="use-case-description">Text to image, endless creativity</span>
                     </button>
                     <button class="use-case-btn" data-case="image_to_image">
-                        <img src="images/以图生图.png" alt="Иконка изображение в изображение" class="use-case-icon-img">
-                        <span class="use-case-title">Изображение в изображение</span>
-                        <span class="use-case-description">Воссоздание изображений, перенос стиля</span>
+                        <img src="images/以图生图.png" alt="Image to Image Icon" class="use-case-icon-img">
+                        <span class="use-case-title">Image to Image</span>
+                        <span class="use-case-description">Image recreation, style transfer</span>
                     </button>
                 </div>
                 <div id="prompt-suggestions-area" class="prompt-suggestions">
-                    <!-- Предложения по подсказкам будут добавлены сюда динамически -->
+                    <!-- Prompt suggestions will be dynamically added here -->
                 </div>
 
                 <!-- New: Image Aspect Ratio Selector -->
 
             </div>
             <footer>
-                <p><a href="https://beian.miit.gov.cn" rel="nofollow">渝ICP备2025053179号</a> | Свяжитесь с нами: <a href="mailto:ytsgabcde47@2925.com">ytsgabcde47@2925.com</a></p>
+                <p><a href="https://beian.miit.gov.cn" rel="nofollow">渝ICP备2025053179号</a> | Contact Us: <a href="mailto:ytsgabcde46@2925.com">ytsgabcde46@2925.com</a></p>
                 <hr class="footer-divider">
-                <p class="footer-ai-notice">Контент создан ИИ, точность не гарантируется, только для справки. <a href="privacy.html">Правила защиты личной информации</a></p>
+                <p class="footer-ai-notice">Content generated by AI, accuracy cannot be guaranteed, for reference only. <a href="privacy.html">Personal Information Protection Rules</a></p>
             </footer>
         </main>
     </div>
@@ -139,8 +137,8 @@
             scaleMobile: 1.00,
             backgroundColor: 0xf7f7f7,
             speedLimit: 3.00,
-            color1: 0xa49039,
-            color2: 0xff9500,
+            color1: 0x7931e,
+            color2: 0xb9aa16,
         })
     </script>
 </body>
