@@ -829,80 +829,80 @@ document.addEventListener('DOMContentLoaded', () => {
 
         switch (caseKey) {
             case 'general':
-                aiWelcomeMessage = "Hello! I'm your general assistant. How can I help you?";
+                aiWelcomeMessage = "Здравствуйте! Я ваш универсальный помощник. Чем могу помочь?";
                 suggestions = [
-                    "Write a poem about spring",
-                    "Explain what a black hole is",
-                    "Tell me a joke"
+                    "Напиши стихотворение о весне",
+                    "Объясни, что такое черная дыра",
+                    "Расскажи анекдот"
                 ];
                 break;
             case 'education':
-                aiWelcomeMessage = "Hello! I'm your education assistant. Do you have any questions about your studies?";
+                aiWelcomeMessage = "Здравствуйте! Я ваш помощник по образованию. Есть вопросы по учебе?";
                 suggestions = [
-                    "Help me understand Newton's first law",
-                    "How can I improve my English writing?",
-                    "Explain the process of photosynthesis"
+                    "Помоги мне понять первый закон Ньютона",
+                    "Как мне улучшить свой английский письменный?",
+                    "Объясни процесс фотосинтеза"
                 ];
                 break;
             case 'translation':
-                aiWelcomeMessage = "Hi! I'm your translation assistant. Which language can I help you with today?";
+                aiWelcomeMessage = "Привет! Я ваш помощник по переводу. С каким языком я могу вам сегодня помочь?";
                 suggestions = [
-                    "Translate to French: Hello, how are you?",
-                    "Translate to English: 今天天气真好",
-                    "¿Cómo se dice \"thank you\" en japonés?"
+                    "Переведи на французский: Здравствуйте, как ваши дела?",
+                    "Переведи на английский: Сегодня отличная погода",
+                    "Как сказать \\\"спасибо\\\" на японском?"
                 ];
                 break;
             case 'data_analysis':
-                aiWelcomeMessage = "Hello! I'm your data analysis assistant. Please provide data or describe your analysis needs.";
+                aiWelcomeMessage = "Здравствуйте! Я ваш ассистент по анализу данных. Пожалуйста, предоставьте данные или опишите ваши потребности в анализе.";
                 suggestions = [
-                    "Analyze the trends in this sales data",
-                    "Identify the main reasons for user churn",
-                    "Predict product sales for the next quarter"
+                    "Проанализируйте тенденции в этих данных о продажах",
+                    "Определите основные причины оттока пользователей",
+                    "Спрогнозируйте продажи продукции на следующий квартал"
                 ];
                 break;
             case 'screenwriting':
-                aiWelcomeMessage = "Hello! I'm your screenwriting partner. Do you have any exciting story ideas?";
+                aiWelcomeMessage = "Привет! Я твой партнер по написанию сценариев. Есть захватывающие идеи для историй?";
                 suggestions = [
-                    "Write the beginning of a sci-fi movie",
-                    "Help me come up with a plot for a mystery short film",
-                    "How to create a memorable character?"
+                    "Напиши начало научно-фантастического фильма",
+                    "Помоги мне придумать сюжет для короткометражного детективного фильма",
+                    "Как создать запоминающегося персонажа?"
                 ];
                 break;
             case 'media_ops':
-                aiWelcomeMessage = "Hello! I'm your media operations advisor. Need any content strategy or promotion ideas?";
+                aiWelcomeMessage = "Здравствуйте! Я ваш консультант по медиаоперациям. Нужны идеи по контент-стратегии или продвижению?";
                 suggestions = [
-                    "Give me some catchy social media post titles",
-                    "How to develop a promotion plan for a new product?",
-                    "Write a blog post about healthy living"
+                    "Дай мне несколько броских заголовков для постов в социальных сетях",
+                    "Как разработать план продвижения нового продукта?",
+                    "Напиши пост в блог о здоровом образе жизни"
                 ];
                 break;
             case 'image_parsing':
-                aiWelcomeMessage = "Hello! I'm the image parsing AI. Please upload an image, and I'll try to understand its content.";
+                aiWelcomeMessage = "Здравствуйте! Я ИИ для анализа изображений. Пожалуйста, загрузите изображение, и я попытаюсь понять его содержимое.";
                 suggestions = [
-                    "What's in this picture?",
-                    "Identify the main objects in the image",
-                    "Describe this landscape photo"
+                    "Что на этой картинке?",
+                    "Определи основные объекты на изображении",
+                    "Опиши эту пейзажную фотографию"
                 ];
                 break;
             case 'ai_drawing':
-                aiWelcomeMessage = "Hello! I'm the AI drawing assistant. What would you like to draw? Describe your idea!";
+                aiWelcomeMessage = "Здравствуйте! Я ИИ-помощник по рисованию. Что бы вы хотели нарисовать? Опишите свою идею!";
                 suggestions = [
-                    "Draw a cat drinking coffee on the moon",
-                    "Generate a cyberpunk-style city night scene",
-                    "Create an impressionist-style landscape painting"
+                    "Нарисуй кота, пьющего кофе на луне",
+                    "Создай ночную сцену города в стиле киберпанк",
+                    "Создай пейзаж в импрессионистском стиле"
                 ];
                 break;
             case 'image_to_image':
-                aiWelcomeMessage = "Hello! I'm the image-to-image AI. Please upload an image and tell me how you'd like to transform it.";
+                aiWelcomeMessage = "Здравствуйте! Я ИИ для преобразования изображений. Пожалуйста, загрузите изображение и скажите, как бы вы хотели его изменить.";
                 suggestions = [
-                    "Turn this photo into an anime style",
-                    "Colorize this sketch",
-                    "Convert the daytime scene in the image to dusk"
+                    "Преврати это фото в стиль аниме",
+                    "Раскрась этот эскиз",
+                    "Преобразуй дневную сцену на изображении в сумерки"
                 ];
                 break;
             default:
-                aiWelcomeMessage = "Hello! Please select a scenario or ask me a question directly.";
-                suggestions = ["What can I help you with?", "Tell me your needs", "Let's start chatting"];
+                aiWelcomeMessage = "Здравствуйте! Пожалуйста, выберите сценарий или задайте мне вопрос напрямую.";
+                suggestions = ["Чем я могу вам помочь?", "Расскажите о своих потребностях", "Давайте начнем общаться"];
         }
 
         addMessageToChat(aiWelcomeMessage, 'bot');
